@@ -11,4 +11,6 @@ git init
 git add -A
 git commit -m 'deploy'
 
+git push -f git@github.com:kli2m/dropdown-vue.git main:gh-pages
+
 cd -
