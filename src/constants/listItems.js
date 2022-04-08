@@ -21,4 +21,10 @@ export const listConsts = [
   'twenty',
 ];
 
-export default listConsts;
+export const listConstsTwo = [
+  'Вчера',
+  'С начала недели',
+  'С начала месяца',
+  'За прошлую неделю',
+  'За прошлый месяц',
+];

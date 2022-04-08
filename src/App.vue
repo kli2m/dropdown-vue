@@ -1,16 +1,15 @@
 <script>
 import Theme from './components/Theme.vue';
 import Select from './components/Select.vue';
-import listConsts from './constants/listItems';
+import { listConsts, listConstsTwo } from './constants/listItems';
 
 export default {
   name: 'App',
   data() {
-    return { isDark: true };
+    return { isDark: false };
   },
   methods: {
     setDarkTheme(val) {
-      console.log(val);
       if (this.isDark !== val) {
         this.isDark = val;
       }
@@ -22,6 +21,7 @@ export default {
   },
   created() {
     this.listConsts = listConsts;
+    this.listConstsTwo = listConstsTwo;
   },
 };
 </script>
@@ -32,8 +32,9 @@ export default {
       <Theme v-on:setDarkTheme="setDarkTheme" />
       <p class="content__select-title">SEARCHABLE DROPDOWN</p>
       <div class="content__selects">
-        <Select v-bind:listConsts="listConsts" />
-        <Select v-bind:listConsts="listConsts" />
+        <Select :listConsts="listConsts" :isDark="isDark" />
+        <Select :listConsts="listConstsTwo" :isDark="isDark" />
+        <Select :listConsts="listConsts" :isDark="isDark" />
       </div>
     </div>
   </div>
@@ -44,13 +45,14 @@ export default {
   padding: 0;
   margin: 0;
 }
-
+input {
+  outline: none;
+}
 .wrapper {
   overflow: hidden;
   background: #fff;
   position: relative;
-  max-height: 100vh;
-  min-height: 100%;
+  min-height: 100vh;
 }
 .wrapper.dark-theme {
   background: #12171f;
@@ -68,5 +70,6 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: 12px;
 }
 </style>
